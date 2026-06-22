@@ -39,8 +39,8 @@
               "crossingFlows": [
                 "df56ae59-c104-4c30-a925-4a062f32a1a9",
                 "9376d038-965f-494f-878c-cf7140071fb9",
-                "e02e4fdb-f80e-42c2-8481-e33c06c2e7f5",
                 "8114092a-fff2-414d-aeb4-48fba3fddca3",
+                "e02e4fdb-f80e-42c2-8481-e33c06c2e7f5",
                 "1cf87c47-3f94-4011-8066-9ff994a44eb9"
               ],
               "containedElements": [
@@ -78,8 +78,8 @@
                 "9376d038-965f-494f-878c-cf7140071fb9",
                 "fc977f6b-6f4f-4cdd-8e4a-d38484eb62c3",
                 "cbcd5169-8750-449f-a216-9499d3433ad6",
-                "e02e4fdb-f80e-42c2-8481-e33c06c2e7f5",
                 "8114092a-fff2-414d-aeb4-48fba3fddca3",
+                "e02e4fdb-f80e-42c2-8481-e33c06c2e7f5",
                 "1cf87c47-3f94-4011-8066-9ff994a44eb9"
               ],
               "containedElements": [
@@ -262,7 +262,25 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "d8bb247f-deed-4ad0-9e84-a1a6b42b5abc",
+                  "title": "Tampering: Manipulation Session Cookies",
+                  "status": "Mitigated",
+                  "severity": "Low",
+                  "type": "Spoofing",
+                  "description": "Manipulation des Session Cookies durch den User (mehr Rechte als er haben sollte)",
+                  "mitigation": "Signerung / Verschlüsselung",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "repudiation": 0
+              }
             }
           },
           {
@@ -1123,80 +1141,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "set session\ncookie",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "14b9df12-1f93-4df5-bbfe-4db03b5f4d09",
-                  "title": "Tampering",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "Manipulation des Session Cookies durch den User (mehr Rechte als er haben sollte)",
-                  "mitigation": "Signierung/Verschlüsselung",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 2,
-                  "score": ""
-                }
-              ],
-              "trustBoundaryIds": [
-                "a702d118-d8ba-4c69-888a-ac65317d8f81",
-                "7d037a60-257f-4120-8efa-79eee4cf2692"
-              ],
-              "threatFrequency": {
-                "tampering": 2,
-                "informationDisclosure": 0,
-                "denialOfService": 0
-              }
-            },
-            "labels": [
-              "set session\ncookie"
-            ],
-            "id": "e02e4fdb-f80e-42c2-8481-e33c06c2e7f5",
-            "source": {
-              "cell": "9c431823-32ed-4505-a4b6-1a9bfe82754d",
-              "port": "b8ae0c6f-110d-47a9-9bd6-a9dc01d7e89b"
-            },
-            "target": {
-              "cell": "dee9834d-9859-4786-bc7c-e7f278593c03",
-              "port": "953eaf5b-91f9-4ab8-823a-43d78504b905"
-            },
-            "vertices": [
-              {
-                "x": 430,
-                "y": -330
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "send credentials",
               "description": "",
               "outOfScope": false,
@@ -1252,6 +1196,80 @@
               {
                 "x": 470,
                 "y": -240
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "set session\ncookie",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "14b9df12-1f93-4df5-bbfe-4db03b5f4d09",
+                  "title": "Tampering",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Manipulation des Session Cookies durch den User (mehr Rechte als er haben sollte)",
+                  "mitigation": "Signierung/Verschlüsselung",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "a702d118-d8ba-4c69-888a-ac65317d8f81",
+                "7d037a60-257f-4120-8efa-79eee4cf2692"
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "set session\ncookie"
+            ],
+            "id": "e02e4fdb-f80e-42c2-8481-e33c06c2e7f5",
+            "source": {
+              "cell": "9c431823-32ed-4505-a4b6-1a9bfe82754d",
+              "port": "b8ae0c6f-110d-47a9-9bd6-a9dc01d7e89b"
+            },
+            "target": {
+              "cell": "dee9834d-9859-4786-bc7c-e7f278593c03",
+              "port": "953eaf5b-91f9-4ab8-823a-43d78504b905"
+            },
+            "vertices": [
+              {
+                "x": 430,
+                "y": -330
               }
             ]
           },
@@ -2356,6 +2374,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 25
+    "threatTop": 26
   }
 }
