@@ -43,6 +43,7 @@
                 "df56ae59-c104-4c30-a925-4a062f32a1a9"
               ],
               "containedElements": [
+                "5e54592f-0b32-4328-96b5-2adc5b8c1929",
                 "dee9834d-9859-4786-bc7c-e7f278593c03",
                 "ba61e4ae-545c-4a08-b93e-c2c65cfdf29a"
               ]
@@ -116,14 +117,15 @@
               ],
               "containedElements": [
                 "045f2b54-a8d6-478c-afe7-5b045cb89f68",
-                "c4a2169f-89f1-499d-beed-f9dc082635bd"
+                "c4a2169f-89f1-499d-beed-f9dc082635bd",
+                "f2bb615f-c2a7-4605-9f5d-d7b78f4d5678"
               ]
             }
           },
           {
             "position": {
-              "x": 74,
-              "y": -540
+              "x": 59.999999999996845,
+              "y": -539.9999999999982
             },
             "size": {
               "width": 140,
@@ -1855,6 +1857,54 @@
               "isWebApplication": false,
               "privilegeLevel": "",
               "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 403.9999999999977,
+              "y": -539.9999999999982
+            },
+            "size": {
+              "width": 130,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Backend (trusted)"
+              }
+            },
+            "visible": true,
+            "shape": "td-text-block",
+            "id": "5007e081-d01f-4c53-9f8a-aefcaf2310f4",
+            "zIndex": 17,
+            "data": {
+              "type": "tm.Text",
+              "name": "Backend (trusted)",
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 1024.999999999998,
+              "y": -539.9999999999982
+            },
+            "size": {
+              "width": 130,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Databank (trusted)"
+              }
+            },
+            "visible": true,
+            "shape": "td-text-block",
+            "id": "f2bb615f-c2a7-4605-9f5d-d7b78f4d5678",
+            "zIndex": 18,
+            "data": {
+              "type": "tm.Text",
+              "name": "Databank (trusted)",
+              "hasOpenThreats": false
             }
           }
         ]
