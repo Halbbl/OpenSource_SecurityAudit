@@ -77,9 +77,9 @@
                 "51ac475f-251f-4063-ae06-f5f877056489",
                 "9376d038-965f-494f-878c-cf7140071fb9",
                 "fc977f6b-6f4f-4cdd-8e4a-d38484eb62c3",
+                "cbcd5169-8750-449f-a216-9499d3433ad6",
                 "e02e4fdb-f80e-42c2-8481-e33c06c2e7f5",
                 "8114092a-fff2-414d-aeb4-48fba3fddca3",
-                "cbcd5169-8750-449f-a216-9499d3433ad6",
                 "1cf87c47-3f94-4011-8066-9ff994a44eb9"
               ],
               "containedElements": [
@@ -395,14 +395,40 @@
                   "new": false,
                   "number": 3,
                   "score": ""
+                },
+                {
+                  "id": "52448588-e58e-4138-be27-3f62cd44a45d",
+                  "title": "Unlimitierte Login Versuche",
+                  "status": "NotApplicable",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "kein standardmäßiges Limit für Login Versuche -> ermöglicht Brute-Force & Credential Stuffing",
+                  "mitigation": "django_axes verwenden",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                },
+                {
+                  "id": "e0f96342-bcd4-47a6-9629-3d708400e429",
+                  "title": "Thread blockieren",
+                  "status": "NotApplicable",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Angreifer senden massenhaft Anfragen und blockieren Thread",
+                  "mitigation": "django_axes aktivieren",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 0,
+                "spoofing": 1,
                 "tampering": 0,
                 "repudiation": 5,
                 "informationDisclosure": 0,
-                "denialOfService": 0,
+                "denialOfService": 2,
                 "elevationOfPrivilege": 0
               }
             }
@@ -1015,167 +1041,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "set session\ncookie",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "14b9df12-1f93-4df5-bbfe-4db03b5f4d09",
-                  "title": "Tampering",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "Manipulation des Session Cookies durch den User",
-                  "mitigation": "Signierung/Verschlüsselung",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 2,
-                  "score": ""
-                }
-              ],
-              "trustBoundaryIds": [
-                "a702d118-d8ba-4c69-888a-ac65317d8f81",
-                "7d037a60-257f-4120-8efa-79eee4cf2692"
-              ],
-              "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 0,
-                "denialOfService": 0
-              }
-            },
-            "labels": [
-              "set session\ncookie"
-            ],
-            "id": "e02e4fdb-f80e-42c2-8481-e33c06c2e7f5",
-            "source": {
-              "cell": "9c431823-32ed-4505-a4b6-1a9bfe82754d",
-              "port": "b8ae0c6f-110d-47a9-9bd6-a9dc01d7e89b"
-            },
-            "target": {
-              "cell": "dee9834d-9859-4786-bc7c-e7f278593c03",
-              "port": "953eaf5b-91f9-4ab8-823a-43d78504b905"
-            },
-            "vertices": [
-              {
-                "x": 430,
-                "y": -330
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "send credentials",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "75e751de-8f9e-4da1-8f41-aba08e9ddc2f",
-                  "title": "Spoofing: Admin",
-                  "status": "NotApplicable",
-                  "severity": "TBD",
-                  "type": "Tampering",
-                  "description": "standardmäßig immer unter .../admin/ erreichbar",
-                  "mitigation": "ändern des Pfades in urls.py und/oder Einsatz von django-axes für Sperre nach x Fehlversuchen",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 6,
-                  "score": ""
-                },
-                {
-                  "id": "3463d678-69ee-4513-9d94-c78a1868a0dc",
-                  "title": "Tampering: Admin",
-                  "status": "NotApplicable",
-                  "severity": "TBD",
-                  "type": "Information disclosure",
-                  "description": "Abfangen von Session oder Cookies -> Manipulation von Daten in UI",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 7,
-                  "score": ""
-                }
-              ],
-              "trustBoundaryIds": [
-                "a702d118-d8ba-4c69-888a-ac65317d8f81",
-                "7d037a60-257f-4120-8efa-79eee4cf2692"
-              ],
-              "threatFrequency": {
-                "tampering": 2,
-                "informationDisclosure": 1,
-                "denialOfService": 0
-              }
-            },
-            "labels": [
-              "send credentials"
-            ],
-            "id": "8114092a-fff2-414d-aeb4-48fba3fddca3",
-            "source": {
-              "cell": "ba61e4ae-545c-4a08-b93e-c2c65cfdf29a",
-              "port": "953eaf5b-91f9-4ab8-823a-43d78504b905"
-            },
-            "target": {
-              "cell": "13a519b4-3f06-4937-95d5-9be0f170dcc1",
-              "port": "b8ae0c6f-110d-47a9-9bd6-a9dc01d7e89b"
-            },
-            "vertices": [
-              {
-                "x": 400,
-                "y": -277
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "write change \nto log",
               "description": "",
               "outOfScope": false,
@@ -1235,6 +1100,158 @@
               {
                 "x": 1330,
                 "y": -390
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "set session\ncookie",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "14b9df12-1f93-4df5-bbfe-4db03b5f4d09",
+                  "title": "Tampering",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Manipulation des Session Cookies durch den User (mehr Rechte als er haben sollte)",
+                  "mitigation": "Signierung/Verschlüsselung",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "a702d118-d8ba-4c69-888a-ac65317d8f81",
+                "7d037a60-257f-4120-8efa-79eee4cf2692"
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "set session\ncookie"
+            ],
+            "id": "e02e4fdb-f80e-42c2-8481-e33c06c2e7f5",
+            "source": {
+              "cell": "9c431823-32ed-4505-a4b6-1a9bfe82754d",
+              "port": "b8ae0c6f-110d-47a9-9bd6-a9dc01d7e89b"
+            },
+            "target": {
+              "cell": "dee9834d-9859-4786-bc7c-e7f278593c03",
+              "port": "953eaf5b-91f9-4ab8-823a-43d78504b905"
+            },
+            "vertices": [
+              {
+                "x": 430,
+                "y": -330
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "send credentials",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "3463d678-69ee-4513-9d94-c78a1868a0dc",
+                  "title": "Tampering: Admin",
+                  "status": "NotApplicable",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Abfangen von Session oder Cookies -> Manipulation von Daten in UI",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "a702d118-d8ba-4c69-888a-ac65317d8f81",
+                "7d037a60-257f-4120-8efa-79eee4cf2692"
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "send credentials"
+            ],
+            "id": "8114092a-fff2-414d-aeb4-48fba3fddca3",
+            "source": {
+              "cell": "ba61e4ae-545c-4a08-b93e-c2c65cfdf29a",
+              "port": "953eaf5b-91f9-4ab8-823a-43d78504b905"
+            },
+            "target": {
+              "cell": "13a519b4-3f06-4937-95d5-9be0f170dcc1",
+              "port": "b8ae0c6f-110d-47a9-9bd6-a9dc01d7e89b"
+            },
+            "vertices": [
+              {
+                "x": 400,
+                "y": -277
+              },
+              {
+                "x": 470,
+                "y": -240
               }
             ]
           },
@@ -1359,7 +1376,53 @@
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "3a43f320-7e7e-4a20-ac66-609fa0b8f981",
+                  "title": "SQL Injection",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Ein Angreifer schleust Schadcode über ein Eingabefeld ein, um Daten direkt in der DB zu verändern oder das Admin-Log zu löschen",
+                  "mitigation": "Django: Das Django ORM nutzt konsequent Parameterized Queries (Prepared Statements), was SQL-Injections nahezu unmöglich macht, solange man kein rohes SQL (.raw()) nutzt.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": ""
+                },
+                {
+                  "id": "2f6ed3b7-75a6-4ced-a3e6-56251b0deff8",
+                  "title": "Database Backup",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Ein Angreifer gelangt an ein Datenbank-Backup. Sind die Passwörter schlecht gehasht, kann er sie mittels Rainbow Tables entschlüsseln",
+                  "mitigation": "Django nutzt standardmäßig PBKDF2 mit SHA256 (und hoher Iterationsanzahl) oder optional Argon2",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": ""
+                },
+                {
+                  "id": "883d6875-6600-4886-b724-031e7a1b889a",
+                  "title": "Löschen Admin Log",
+                  "status": "NotApplicable",
+                  "severity": "High",
+                  "type": "Repudiation",
+                  "description": "Ein böswilliger Superuser führt unbefugte Änderungen im System durch und löscht anschließend die entsprechenden Zeilen in der Tabelle django_admin_log, um die Tat abzustreiten. (Das eingebaute Risiko der gemeinsamen DB-Nutzung!)",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -1492,14 +1555,40 @@
                   "new": false,
                   "number": 4,
                   "score": ""
+                },
+                {
+                  "id": "b2a9f249-1327-4559-9234-4f7608bac5dd",
+                  "title": "Timing Attacks",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "System antwortet schneller bei nicht existentem User als bei User mit falschem Password weil kein Hashing stattfindet und verrät damit ob User existiert",
+                  "mitigation": "Django: Dummy-Hashing wenn User nicht existiert",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
+                },
+                {
+                  "id": "9cf23112-e6c1-4dda-8df2-939001cead7b",
+                  "title": "Password Hashing Exaustion",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Extrem lange Passwörter führen durch Hashing zu CPU Überlastung",
+                  "mitigation": "Django: Limiterung auf 4096 Bytes",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "spoofing": 0,
                 "tampering": 0,
                 "repudiation": 1,
-                "informationDisclosure": 0,
-                "denialOfService": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 1,
                 "elevationOfPrivilege": 0
               }
             }
@@ -1621,7 +1710,55 @@
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "915cd6e2-eb71-4c1b-84c9-22d600ac00f0",
+                  "title": "Session Fixation",
+                  "status": "Mitigated",
+                  "severity": "Low",
+                  "type": "Spoofing",
+                  "description": "Angreifer generiert gültige Session ID, schiebt sie Opfer unter -> Login Opfer -> Übernahme Angreifer",
+                  "mitigation": "Django: invalidiert bei jedem erfolgreichen Login alte Session",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
+                },
+                {
+                  "id": "79e6dd0f-edad-4d9d-b191-c64460963a3f",
+                  "title": "Manipulation Session Cookies Browser",
+                  "status": "Mitigated",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "Manipulation Session Cookies im Browser",
+                  "mitigation": "Djang: Wenn cookieland-basierte Sessions genutzt werden, sind diese kryptografisch signiert (django.core.signing). Jede Änderung macht das Cookie ungültig.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                },
+                {
+                  "id": "f37db7d5-3919-44b3-89d2-4fa0db5b5f08",
+                  "title": "Erraten/berechnen nächster Session",
+                  "status": "Mitigated",
+                  "severity": "Low",
+                  "type": "Elevation of privilege",
+                  "description": "Angreifer errät oder berechnet nächste Session",
+                  "mitigation": "Django: Nutzt den Krypto-Zufallsgenerator des Betriebssystems zur Erzeugung unvorhersehbarer 32-stelliger Strings",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -1638,11 +1775,13 @@
                 "text": "DS2: session_store"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1739,13 +1878,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "c7158e3f-5e0a-4dd4-94c1-54df9afeb629",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": true,
+                  "number": 24,
+                  "score": ""
+                }
+              ]
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -2008,23 +2168,55 @@
                   "new": false,
                   "number": 10,
                   "score": ""
+                },
+                {
+                  "id": "d684b895-c83c-45a4-afcc-f11061310577",
+                  "title": "Spoofing: Admin",
+                  "status": "NotApplicable",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "standardmäßig unter .../admin erreichbar",
+                  "mitigation": "ändern des Pfades in urls.py und/oder Einsatz von django-axes für Sperre nach x Fehlversuchen",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": ""
+                },
+                {
+                  "id": "134e77d1-fab5-4887-a373-486c91d0f5e6",
+                  "title": "Cross-Site Request Forgery",
+                  "status": "Mitigated",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "Ein Admin ist eingeloggt und besucht parallel eine bösartige Website. Diese Website triggert im Hintergrund einen Request an das Admin-Panel (z. B. \"Lösche User X\")",
+                  "mitigation": "Django: Die CsrfViewMiddleware erzwingt bei jedem POST-Request ein geheimes, sessiongebundenes Token",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": ""
+                },
+                {
+                  "id": "01d3edbb-e5dd-48e4-9aaf-81ddb359d430",
+                  "title": "Schwachstelle custom admin panel",
+                  "status": "NotApplicable",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "Ein Staff-User manipuliert über eine Schwachstelle in einer Custom Admin View (z. B. eine IDOR-Anfälligkeit in der URL /admin/auth/user/12/change/) die ID, um die Rechte eines anderen Benutzers anzuheben.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 0,
-                "tampering": 0,
+                "spoofing": 2,
+                "tampering": 1,
                 "repudiation": 0,
                 "informationDisclosure": 2,
                 "denialOfService": 2,
-                "elevationOfPrivilege": 0
+                "elevationOfPrivilege": 1
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -2154,6 +2346,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 10
+    "threatTop": 24
   }
 }
