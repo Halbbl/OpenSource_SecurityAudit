@@ -40,7 +40,8 @@
                 "1cf87c47-3f94-4011-8066-9ff994a44eb9",
                 "e02e4fdb-f80e-42c2-8481-e33c06c2e7f5",
                 "8114092a-fff2-414d-aeb4-48fba3fddca3",
-                "df56ae59-c104-4c30-a925-4a062f32a1a9"
+                "df56ae59-c104-4c30-a925-4a062f32a1a9",
+                "9376d038-965f-494f-878c-cf7140071fb9"
               ],
               "containedElements": [
                 "5e54592f-0b32-4328-96b5-2adc5b8c1929",
@@ -78,7 +79,8 @@
                 "c7bff43d-7304-401f-9bfb-e03809f02d5b",
                 "df56ae59-c104-4c30-a925-4a062f32a1a9",
                 "51ac475f-251f-4063-ae06-f5f877056489",
-                "cbcd5169-8750-449f-a216-9499d3433ad6"
+                "cbcd5169-8750-449f-a216-9499d3433ad6",
+                "9376d038-965f-494f-878c-cf7140071fb9"
               ],
               "containedElements": [
                 "d802c3d7-b8fa-4e6e-873d-28b06726b270",
@@ -1011,7 +1013,7 @@
             },
             "vertices": [
               {
-                "x": 380,
+                "x": 370,
                 "y": -215
               }
             ]
@@ -1131,6 +1133,61 @@
               {
                 "x": 1330,
                 "y": -390
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "data manipulation\nCSRF-Token + POST",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "a702d118-d8ba-4c69-888a-ac65317d8f81",
+                "7d037a60-257f-4120-8efa-79eee4cf2692"
+              ]
+            },
+            "labels": [
+              "data manipulation\nCSRF-Token + POST"
+            ],
+            "id": "9376d038-965f-494f-878c-cf7140071fb9",
+            "source": {
+              "cell": "ba61e4ae-545c-4a08-b93e-c2c65cfdf29a",
+              "port": "ba4d0262-894f-4786-9fa9-e1eef1ce8e26"
+            },
+            "target": {
+              "cell": "13a519b4-3f06-4937-95d5-9be0f170dcc1",
+              "port": "df9e6eec-6727-4a8f-a15a-baea7bcf0efa"
+            },
+            "vertices": [
+              {
+                "x": 350,
+                "y": -160
               }
             ]
           },
