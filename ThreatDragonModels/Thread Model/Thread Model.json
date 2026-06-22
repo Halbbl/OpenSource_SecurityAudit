@@ -50,7 +50,7 @@
           },
           {
             "position": {
-              "x": 410.9999999999998,
+              "x": 390.9999999999998,
               "y": 29.999999999999886
             },
             "size": {
@@ -72,8 +72,8 @@
                 "ba87bbb3-3e52-448f-b938-e2d0e7bf9882",
                 "c7d229ae-87e5-4a1e-89e2-2f3b0d0053c7",
                 "411468cf-1359-4cbb-aa4d-25bc909a4cc8",
-                "1dee7c21-a83a-4f63-b8b0-389ef0018d78",
                 "345a20f3-3a12-41b4-a1a6-5548772af01e",
+                "1dee7c21-a83a-4f63-b8b0-389ef0018d78",
                 "dae54c52-a88b-4728-aefd-be4a075d3ea1",
                 "28f4222e-6758-4cf2-a03c-130729fc711b"
               ],
@@ -467,61 +467,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Cookies",
-              "description": "Session Cookies ",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "1fa33187-450a-452a-a824-d5a38203b358",
-                "b16a693e-c8af-44cb-ab2c-f705dc4834db"
-              ]
-            },
-            "labels": [
-              "Cookies"
-            ],
-            "id": "1dee7c21-a83a-4f63-b8b0-389ef0018d78",
-            "source": {
-              "cell": "598eff52-5318-4aba-9e41-f8e2951de5d6",
-              "port": "32d374c9-be0f-4a0f-acc2-17980ae24734"
-            },
-            "target": {
-              "cell": "b22431cc-5217-45e5-b1ab-08446ae4fd03",
-              "port": "651f0e13-3338-4e7e-9dd1-f48d2885ee5a"
-            },
-            "vertices": [
-              {
-                "x": 360,
-                "y": 230
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "valid request",
               "description": "credentials + cookie",
               "outOfScope": false,
@@ -601,6 +546,61 @@
               {
                 "x": 840,
                 "y": 290
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "set cookies\nsession_id",
+              "description": "Session Cookies ",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "1fa33187-450a-452a-a824-d5a38203b358",
+                "b16a693e-c8af-44cb-ab2c-f705dc4834db"
+              ]
+            },
+            "labels": [
+              "set cookies\nsession_id"
+            ],
+            "id": "1dee7c21-a83a-4f63-b8b0-389ef0018d78",
+            "source": {
+              "cell": "598eff52-5318-4aba-9e41-f8e2951de5d6",
+              "port": "32d374c9-be0f-4a0f-acc2-17980ae24734"
+            },
+            "target": {
+              "cell": "b22431cc-5217-45e5-b1ab-08446ae4fd03",
+              "port": "651f0e13-3338-4e7e-9dd1-f48d2885ee5a"
+            },
+            "vertices": [
+              {
+                "x": 360,
+                "y": 230
               }
             ]
           },
@@ -2115,6 +2115,52 @@
                 "y": 396
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 28,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Logged in",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Logged in"
+            ],
+            "id": "95840c58-65ec-4be2-922f-a77c792b3c9b",
+            "source": {
+              "cell": "90165b5d-3d4d-4e31-ab22-1ad7eee402b6",
+              "port": "32d374c9-be0f-4a0f-acc2-17980ae24734"
+            },
+            "target": {
+              "cell": "598eff52-5318-4aba-9e41-f8e2951de5d6",
+              "port": "969ed987-e1cc-4e7d-a325-e7e735ceeae6"
+            }
           }
         ],
         "description": "Starting STRIDE Diagram for Authentfication System"
