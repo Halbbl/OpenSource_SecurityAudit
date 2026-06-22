@@ -1775,13 +1775,11 @@
                 "text": "DS2: session_store"
               },
               "topLine": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -1878,7 +1876,7 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
@@ -1887,25 +1885,37 @@
               "threats": [
                 {
                   "id": "c7158e3f-5e0a-4dd4-94c1-54df9afeb629",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
-                  "severity": "TBD",
+                  "title": "Spoofing & Elevation of Privilage",
+                  "status": "NotApplicable",
+                  "severity": "High",
                   "type": "Tampering",
-                  "description": "Provide a description for this threat",
+                  "description": "Mit den ausgelesenen Session-Keys aus DS2 kann sich der Angreifer ohne Passwort als jeder beliebige Benutzer (inklusive Superuser) authentifizieren",
                   "mitigation": "Provide remediation for this threat or a reason if status is N/A",
                   "modelType": "STRIDE",
-                  "new": true,
+                  "new": false,
                   "number": 24,
                   "score": ""
+                },
+                {
+                  "id": "f19060fe-358d-40f0-b3fa-2150baee89d2",
+                  "title": "Schlecht Abgesichert",
+                  "status": "NotApplicable",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Wenn der Session-Store (z. B. Redis oder die DB-Tabelle django_session) unverschlüsselt und schlecht abgesichert ist, kann ein Angreifer alle aktiven Session-Keys auslesen",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": ""
                 }
-              ]
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
               ],
-              "name": null
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -2346,6 +2356,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 24
+    "threatTop": 25
   }
 }
